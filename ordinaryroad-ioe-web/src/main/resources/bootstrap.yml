@@ -10,8 +10,7 @@ spring:
     name: ordinaryroad-ioe
   cloud:
     nacos:
-      server-addr: nacos.or-pro:8848
-      #      server-addr: ordinaryroad-nacos:8848
+      server-addr: @nacos.url@
       config:
         file-extension: yaml
         shared-configs:
