@@ -39,7 +39,7 @@ import org.thingsboard.server.common.data.page.PageLink;
 import org.thingsboard.server.common.data.page.SortOrder;
 import org.thingsboard.server.common.data.page.TimePageLink;
 import org.thingsboard.server.common.data.query.AlarmDataPageLink;
-import tech.ordinaryroad.commons.core.base.dto.BaseDTO;
+import tech.ordinaryroad.commons.base.dto.BaseDTO;
 import tech.ordinaryroad.ioe.api.request.BaseIoEQueryRequest;
 import tech.ordinaryroad.ioe.api.request.IoEAlarmDataQueryRequest;
 import tech.ordinaryroad.ioe.api.request.IoERpcRequest;
@@ -63,12 +63,14 @@ public class IoEUtils {
         final int page = offset / limit;
 
         final SortOrder sortOrder;
-        final String orderByAscProperty = ArrayUtil.get(request.getOrderBy(), 0);
-        final String orderByDescProperty = ArrayUtil.get(request.getOrderByDesc(), 0);
-        if (StrUtil.isNotBlank(orderByAscProperty)) {
-            sortOrder = new SortOrder(orderByAscProperty, SortOrder.Direction.ASC);
-        } else if (StrUtil.isNotBlank(orderByDescProperty)) {
-            sortOrder = new SortOrder(orderByDescProperty, SortOrder.Direction.DESC);
+        final String sortBy = ArrayUtil.get(request.getSortBy(), 0);
+        final boolean sortDesc = BooleanUtil.isTrue(ArrayUtil.get(request.getSortDesc(), 0));
+        if (StrUtil.isNotBlank(sortBy)) {
+            if (sortDesc) {
+                sortOrder = new SortOrder(sortBy, SortOrder.Direction.DESC);
+            } else {
+                sortOrder = new SortOrder(sortBy, SortOrder.Direction.ASC);
+            }
         } else {
             sortOrder = null;
         }
@@ -83,12 +85,14 @@ public class IoEUtils {
         final int page = offset / limit;
 
         final SortOrder sortOrder;
-        final String orderByAscProperty = ArrayUtil.get(request.getOrderBy(), 0);
-        final String orderByDescProperty = ArrayUtil.get(request.getOrderByDesc(), 0);
-        if (StrUtil.isNotBlank(orderByAscProperty)) {
-            sortOrder = new SortOrder(orderByAscProperty, SortOrder.Direction.ASC);
-        } else if (StrUtil.isNotBlank(orderByDescProperty)) {
-            sortOrder = new SortOrder(orderByDescProperty, SortOrder.Direction.DESC);
+        final String sortBy = ArrayUtil.get(request.getSortBy(), 0);
+        final boolean sortDesc = BooleanUtil.isTrue(ArrayUtil.get(request.getSortDesc(), 0));
+        if (StrUtil.isNotBlank(sortBy)) {
+            if (sortDesc) {
+                sortOrder = new SortOrder(sortBy, SortOrder.Direction.DESC);
+            } else {
+                sortOrder = new SortOrder(sortBy, SortOrder.Direction.ASC);
+            }
         } else {
             sortOrder = null;
         }

@@ -26,7 +26,7 @@ package tech.ordinaryroad.ioe.service;
 import cn.dev33.satoken.stp.StpUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import tech.ordinaryroad.commons.core.base.exception.BaseException;
+import tech.ordinaryroad.commons.base.exception.BaseException;
 import tech.ordinaryroad.commons.core.base.result.Result;
 import tech.ordinaryroad.ioe.entity.IoEUserDO;
 import tech.ordinaryroad.upms.api.ISysUserApi;

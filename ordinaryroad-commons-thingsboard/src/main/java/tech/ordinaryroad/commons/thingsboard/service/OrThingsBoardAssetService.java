@@ -21,43 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package tech.ordinaryroad.ioe.api.request;
+package tech.ordinaryroad.commons.thingsboard.service;
 
-import com.alibaba.fastjson2.JSONObject;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.Getter;
-import lombok.Setter;
-import tech.ordinaryroad.commons.core.base.request.BaseRequest;
-
-import javax.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 /**
  * @author mjz
- * @date 2022/4/18
+ * @date 2022/4/20
  */
-@Getter
-@Setter
-@ApiModel
-public class IoERpcRequest extends BaseRequest {
+@RequiredArgsConstructor
+@Service
+public class OrThingsBoardAssetService {
 
-    private static final long serialVersionUID = 5914942831107702983L;
-
-    @ApiModelProperty(value = "方法名称", required = true)
-    @NotBlank(message = "方法名称不能为空")
-    private String method;
-
-    @ApiModelProperty("参数")
-    private JSONObject params = new JSONObject();
-
-    private Long timeout = 10000L;
-
-    private Long expirationTime;
-
-    private Boolean persistent = Boolean.FALSE;
-
-    private Integer retries;
-
-    private JSONObject additionalInfo;
+    private final OrThingsBoardClientService clientService;
 
 }

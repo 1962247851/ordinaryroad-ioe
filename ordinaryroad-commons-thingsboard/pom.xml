@@ -33,7 +33,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ordinaryroad-ioe-api</artifactId>
+    <artifactId>ordinaryroad-commons-thingsboard</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -47,10 +47,17 @@
             <artifactId>ordinaryroad-commons-core</artifactId>
         </dependency>
 
-        <!-- ordinaryroad-auth-server-api -->
+        <!-- ThingsBoard Client -->
         <dependency>
-            <groupId>tech.ordinaryroad</groupId>
-            <artifactId>ordinaryroad-auth-server-api</artifactId>
+            <groupId>org.thingsboard</groupId>
+            <artifactId>rest-client</artifactId>
+        </dependency>
+
+        <!--配置文件处理器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

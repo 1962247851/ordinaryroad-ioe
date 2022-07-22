@@ -23,7 +23,7 @@
  */
 package tech.ordinaryroad.ioe.api.dto;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
